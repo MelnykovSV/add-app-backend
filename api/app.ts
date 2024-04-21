@@ -1,6 +1,7 @@
 const express = require('express');
 const logger = require('morgan');
 const cors = require('cors');
+const addsRouter = require('./routes/adds');
 require('dotenv').config();
 
 type Request = import('express').Request;
@@ -13,6 +14,8 @@ app.use(logger(formatsLogger));
 app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
+
+app.use('/adds', addsRouter);
 
 app.get('/', async (req: Request, res: Response) => {
   // eslint-disable-next-line no-console
