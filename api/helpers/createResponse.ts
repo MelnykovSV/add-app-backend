@@ -1,20 +1,21 @@
-import * as Express from "express";
+type Response = import('express').Response;
+
 const createResponse = (
-  res: Express.Response,
+  res: Response,
   code: number = 200,
-  message: string = "Operation successful",
-  data: any = null
+  message: string = 'Operation successful',
+  data: any = null,
 ) => {
   if (data) {
     return res.status(code).json({
-      status: "success",
+      status: 'success',
       code,
       message,
       data,
     });
   }
   return res.status(code).json({
-    status: "success",
+    status: 'success',
     code,
     message,
   });

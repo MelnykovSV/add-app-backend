@@ -1,4 +1,4 @@
-import { IError } from '../interfaces';
+type IError = import('../interfaces').IError;
 
 const defaultErrorMessages = {
   400: 'Bad Request',
@@ -10,9 +10,9 @@ const defaultErrorMessages = {
 
 const HttpError = (
   status: keyof typeof defaultErrorMessages,
-  message = defaultErrorMessages[status]
+  message = defaultErrorMessages[status],
 ) => {
-  if (!defaultErrorMessages.hasOwnProperty(status)) {
+  if (!Object.prototype.hasOwnProperty.call(defaultErrorMessages, status)) {
     const error = new Error('Unknown error');
     return error;
   }

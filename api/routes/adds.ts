@@ -1,8 +1,9 @@
 const express = require('express');
+const { getAdds, createAdd } = require('../controllers/adds');
 
 const addsRouter = express.Router();
 
-addsRouter.get('/', () => {});
-addsRouter.post('/', () => {});
+addsRouter.get('/', getAdds);
+addsRouter.post('/', createAdd);
 
 module.exports = addsRouter;
