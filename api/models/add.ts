@@ -30,7 +30,6 @@ const addJoiSchema = Joi.object({
     .min(3)
     .max(300)
     .required(),
-  image: Joi.string().required(),
   address: Joi.string().required(),
   lat: Joi.number().required(),
   lon: Joi.number().required(),

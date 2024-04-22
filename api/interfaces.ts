@@ -9,3 +9,5 @@ export interface IError extends Error {
 }
 
 export type Ctrl = (req: Express.Request, res: Express.Response) => void;
+
+export type IFileNameCallback = (error: Error | null, filename: string) => void;
