@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const Joi = require('joi');
 
 const addSchema = new Schema(
   {
@@ -17,6 +18,24 @@ const addSchema = new Schema(
   { versionKey: false, timestamps: true },
 );
 
+const addJoiSchema = Joi.object({
+  name: Joi.string()
+    .min(3)
+    .max(30)
+    .required(),
+  price: Joi.number()
+    .min(0)
+    .required(),
+  description: Joi.string()
+    .min(3)
+    .max(300)
+    .required(),
+  image: Joi.string().required(),
+  address: Joi.string().required(),
+  lat: Joi.number().required(),
+  lon: Joi.number().required(),
+});
+
 const Add = model('add', addSchema);
 
-module.exports = Add;
+module.exports = { Add, addJoiSchema };

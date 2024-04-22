@@ -6,6 +6,7 @@ require('dotenv').config();
 
 type Request = import('express').Request;
 type Response = import('express').Response;
+type NextFunction = import('express').NextFunction;
 
 const app = express();
 const formatsLogger = app.get('env') === 'development' ? 'dev' : 'short';
@@ -17,16 +18,6 @@ app.use(express.static('public'));
 
 app.use('/adds', addsRouter);
 
-app.get('/', async (req: Request, res: Response) => {
-  // eslint-disable-next-line no-console
-  console.log('Response');
-
-  res.status(200).json({
-    message: 'Response',
-    data: 'Some response message',
-  });
-});
-
 app.use((_: Request, res: Response) => {
   res.status(400).json({
     status: 'error',
@@ -35,7 +26,8 @@ app.use((_: Request, res: Response) => {
   });
 });
 
-app.use((err: any, _: Request, res: Response) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
   const { status = 500, message = 'Internal Server Error' } = err;
 
   res.status(status).json({

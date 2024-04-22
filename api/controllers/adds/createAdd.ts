@@ -1,4 +1,4 @@
-const Add = require('../../models/add');
+const { Add } = require('../../models/add');
 const { createResponse } = require('../../helpers');
 
 type IExtendedRequest = import('../../interfaces').IExtendedRequest;
