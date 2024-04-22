@@ -5,8 +5,9 @@
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node api/index.ts",
-    "dev": "nodemon ./api/index.ts",
+    "start": "node dist/index.js",
+    "build": "npm install && tsc",
+    "dev": "nodemon ./src/index.ts",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "keywords": [],
