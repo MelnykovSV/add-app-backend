@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 const Joi = require('joi');
 
-const addSchema = new Schema(
+const listingSchema = new Schema(
   {
     name: { type: String, required: true },
     price: {
@@ -18,7 +18,7 @@ const addSchema = new Schema(
   { versionKey: false, timestamps: true },
 );
 
-const addJoiSchema = Joi.object({
+const listingJoiSchema = Joi.object({
   name: Joi.string()
     .min(3)
     .max(30)
@@ -35,6 +35,6 @@ const addJoiSchema = Joi.object({
   lon: Joi.number().required(),
 });
 
-const Add = model('add', addSchema);
+const Listing = model('add', listingSchema);
 
-module.exports = { Add, addJoiSchema };
+module.exports = { Listing, listingJoiSchema };

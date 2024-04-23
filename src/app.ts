@@ -1,7 +1,7 @@
 const express = require('express');
 const logger = require('morgan');
 const cors = require('cors');
-const addsRouter = require('./routes/adds');
+const listingsRouter = require('./routes/listings');
 require('dotenv').config();
 
 type Request = import('express').Request;
@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
 
-app.use('/adds', addsRouter);
+app.use('/listings', listingsRouter);
 
 app.use((_: Request, res: Response) => {
   res.status(400).json({
