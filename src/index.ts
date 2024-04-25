@@ -10,8 +10,6 @@ const port = 5000;
 mongoose
   .connect(DB_HOST)
   .then(() => {
-    // eslint-disable-next-line no-console
-    console.log('Database connection successful');
     app.listen(port, () => {
       // eslint-disable-next-line no-console
       console.log(`Server running. Use our API on port: ${port}`);
