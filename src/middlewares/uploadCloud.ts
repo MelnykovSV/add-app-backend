@@ -14,7 +14,7 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
   cloudinary,
   folder: 'spectra',
-  allowedFormats: ['pdf', 'jpg'],
+  allowedFormats: ['png', 'jpg'],
   filename: (req: Express.Request, file: Express.Multer.File, cb: IFileNameCallback) => {
     cb(null, file.originalname);
   },
