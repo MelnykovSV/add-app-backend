@@ -75,9 +75,14 @@ npm run dev
 
 ```
 4. Include the .env file in the root directory with the following contents:
+
 DB_HOST = ****************
+
 CLOUDINARY_NAME = ****************
+
 CLOUDINARY_KEY = ****************
+
 CLOUDINARY_SECRET = ****************
+
 
 5. Access the application at http://localhost:5000.
